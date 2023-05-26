@@ -1,0 +1,67 @@
+﻿@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Course>
+@inject AppDbContext _dbContext
+
+<div class="content">
+    <h1 style="text-align:center">Available Courses</h1>
+
+    @if (Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-header">Name</th>
+                    <th class="table-header">Description</th>
+                    <th class="table-header">Max Capacity</th>
+                    <th class="table-header">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td class="table-header">@course.Name</td>
+                        <td class="table-header">@course.Description</td>
+                        <td class="table-header">@course.AlreadyEnrolledCount/@course.MaxCapacity</td>
+                        <td class="table-header">
+                            @{
+                                var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                var isEnrolled = _dbContext.Enrollments.Any(e => e.CourseId == course.Id && e.StudentId == studentId);
+                            }
+
+                            @if (User.IsInRole("Student") && course.AlreadyEnrolledCount < course.MaxCapacity && !isEnrolled)
+                            {
+                                <form method="post" action="@Url.Action("Enroll", "Student")">
+                                    <input type="hidden" name="courseId" value="@course.Id" />
+                                    <input type="hidden" name="studentId" value="@studentId" />
+                                    <input type="number" name="score" placeholder="Score" min="1" max="100" />
+                                    <button type="submit" class="btn btn-primary">Enroll</button>
+                                </form>
+                            }
+                            else if (course.AlreadyEnrolledCount >= course.MaxCapacity)
+                            {
+                                <form method="post" action="@Url.Action("Results", "Student")">
+                                    <button type="submit" class="btn btn-primary">See Results</button>
+                                </form>
+                            }
+                            else if (User.IsInRole("Student") && course.AlreadyEnrolledCount < course.MaxCapacity && isEnrolled)
+                            {
+                                <button class="btn btn-primary" disabled>Enroll</button>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No courses available.</p>
+    }
+</div>

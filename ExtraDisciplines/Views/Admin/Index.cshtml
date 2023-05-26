@@ -1,0 +1,39 @@
+﻿@model List<Course>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="content">
+    <h1 style="text-align:center">
+        Courses
+    </h1>
+    @if (Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Max Capacity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td>@course.Name</td>
+                        <td>@course.MaxCapacity</td>
+                        <td>
+                            <a id="edit-course-button" class="btn btn-primary" href="@Url.Action("Edit", new { id = course.Id })"></a>
+                            <a id="delete-course-button" class="btn btn-primary" href="@Url.Action("Delete", new { id = course.Id })"></a>
+                            <a id="ratings-course-button" class="btn btn-primary" href="@Url.Action("Ratings", new { id = course.Id })"></a>
+                            <a id="setmaxcapacity-course-button" class="btn btn-primary" href="@Url.Action("SetMaxCapacity", new { id = course.Id })"></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    <a id="create-new-course-button" href="@Url.Action("Create")" class="btn btn-primary"></a>
+</div>

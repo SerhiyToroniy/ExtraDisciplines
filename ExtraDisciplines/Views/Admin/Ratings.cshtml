@@ -1,0 +1,31 @@
+﻿@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Student Ratings";
+}
+
+<div class="content">
+    <a href="@Url.Action("Index")"><div class="back-arrow"></div></a>
+
+    <h1 style="text-align:center">Student Ratings</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var enrollment in Model)
+            {
+                <tr>
+                    <td>@enrollment.Student.Name</td>
+                    <td>@enrollment.Score</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*<a href="@Url.Action("Index")">Back to List</a>*@
+</div>

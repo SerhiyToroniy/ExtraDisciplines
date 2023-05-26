@@ -1,0 +1,34 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="auth">
+    <h2 id="login-label">Register</h2>
+    <form asp-action="Register" method="post">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" asp-for="Email" />
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" asp-for="UserName" />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" asp-for="Password" />
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" asp-for="ConfirmPassword" />
+        </div>
+        <button  id="submit-button" type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <script>
+        var x = document.getElementsByClassName('pb-3');
+        x[0].style.backgroundColor = "transparent";
+        x[0].style.border = "0px";
+        x[0].style.boxShadow = "0px 0px";
+    </script>
+</div>

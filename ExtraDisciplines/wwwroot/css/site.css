@@ -1,0 +1,192 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('../img/SiteBackground.jpg');
+    background-size:auto;
+    min-height: 100%;
+    height: 100%;
+}
+
+.pb-3
+{
+    height: 100vh;
+    background-color: white;
+    padding: 0% 8% 8% 8%;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px lightgrey;
+}
+
+main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: white;
+}
+
+#register-button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    color: white;
+    background: linear-gradient(to bottom right, #0DE1FD, #0D6EFD);
+    border-radius: 10px;
+}
+
+#login-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: #0D6EFD;
+    border-radius: 10px;
+    border: 1px solid #0D6EFD;
+}
+
+#logout-button {
+    /*    padding: 10px 20px;
+    margin-right: 10px;
+    color: black;
+    border-radius: 10px;*/
+    padding: 15px;
+    margin-left: 30px;
+    margin-top: 5px;
+    border: 0px;
+    background-image: url('../img/logout-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-color: transparent;
+}
+
+.navbar-logo{
+    background-image: url('../img/Logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 25px;
+    margin-right: 10px;
+}
+
+.table {
+    background-color: #F6F6F6;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 0px 0px 20px lightgrey;
+}
+
+
+th.table-header, td.table-header{
+    padding: 10px 20px;
+}
+
+.auth {
+    width: 400px;
+    padding: 50px 30px;
+    margin: auto;
+    box-shadow: 0px 0px 10px lightgrey;
+    border-radius: 20px;
+    background-color: white;
+}
+
+#login-label{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#submit-button{
+    margin-left: 120px;
+    width: 100px;
+}
+
+#create-new-course-button {
+    padding: 12px;
+    margin-left: 10px;
+    border: 0px;
+    background-image: url('../img/addCourse-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#edit-course-button {
+    padding: 15px;
+    /*margin-left: 20px;*/
+    margin: 10px;
+    border: 0px;
+    background-image: url('../img/edit.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-color: transparent;
+}
+
+#delete-course-button {
+    padding: 15px;
+    margin: 10px;
+    border: 0px;
+    background-image: url('../img/delete.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-color: transparent;
+}
+
+#setmaxcapacity-course-button {
+    padding: 15px;
+    margin: 10px;
+    border: 0px;
+    background-image: url('../img/capacity.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-color: transparent;
+}
+
+#ratings-course-button {
+    padding: 15px;
+    border: 0px;
+    margin: 10px;
+    background-image: url('../img/rating.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-color: transparent;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+.content{
+    padding-top: 60px;
+}
+
+.back-arrow {
+    background-image: url('../img/backArrow-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.navbar-role {
+    color: #0DB8FD;
+    font-size: 12px;
+}
